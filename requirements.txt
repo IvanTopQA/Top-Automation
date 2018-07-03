@@ -1,0 +1,6 @@
+#pages
+# PYTHON PACKAGE REQUIREMENTS:
+
+behave
+selenium
+chromedriver_installer
