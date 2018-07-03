@@ -17,7 +17,6 @@ def before_all(context):
     context.driver = webdriver.Chrome()
     context.wait = ui.WebDriverWait(context.driver, 15)
     context.qa_page = QaPage(context)
-    context.driver.maximize_window()
 
 
 def after_scenario(context, scenario):
