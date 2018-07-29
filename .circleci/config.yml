@@ -35,6 +35,7 @@ jobs:
       - run:
           name: install allure
           command: |
+            sudo apt-get install software-properties-common python-software-properties
             sudo apt-add-repository ppa:qameta/allure
             sudo apt-get update
             sudo apt-get install allure
@@ -47,7 +48,7 @@ jobs:
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
       - run:
           name: generate test result
-          command: |   
+          command: |
             allure generate ./result
       - store_artifacts:
           path: artifacts
