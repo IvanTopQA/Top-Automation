@@ -48,5 +48,8 @@ jobs:
           path: artifacts
       - store_artifacts:
           path: result
+      - store_artifacts:
+          path: allure-report
 destination: artifacts
 destination: result
+destination: allure-report
