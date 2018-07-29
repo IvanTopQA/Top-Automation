@@ -41,11 +41,10 @@ jobs:
             . venv/bin/activate
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
 
-      - run:
-          name: generate test result
-          command: |
-            . venv/bin/activate
-            docker run -v "${BUILD_DIR}/result:/allure" cashongo/allure-report-generator
+    docker:
+      # specify the version you desire here
+      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
+      - image: cashongo/allure-report-generator
 
       - store_artifacts:
           path: artifacts
