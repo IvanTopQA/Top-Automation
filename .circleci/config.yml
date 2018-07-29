@@ -38,7 +38,10 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            behave
+            behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
       - store_artifacts:
           path: artifacts
+      - store_artifacts:
+          path: result
 destination: artifacts
+destination: result
