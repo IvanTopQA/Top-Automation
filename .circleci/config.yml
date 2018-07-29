@@ -42,7 +42,9 @@ jobs:
 
       - run:
           name: generate allure
-          command: allure generate ./result
+          command: |
+            docker pull cashongo/allure-report-generator
+            docker run -v "./result:/allure-report" cashongo/allure-report-generator
           when: always
 
       - store_artifacts:
