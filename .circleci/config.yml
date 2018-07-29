@@ -32,6 +32,12 @@ jobs:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
+      - run:
+          name: install allure
+          command: |
+            sudo apt-add-repository ppa:qameta/allure
+            sudo apt-get update
+            sudo apt-get install allure
 
       # run tests!
       - run:
@@ -41,12 +47,8 @@ jobs:
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
       - run:
           name: generate test result
-          command: |
-            . venv/bin/activate
-            sudo apt-add-repository ppa:qameta/allure
-            sudo apt-get update
-            sudo apt-get install allure
-            allure generat ./result
+          command: |   
+            allure generate ./result
       - store_artifacts:
           path: artifacts
       - store_artifacts:
