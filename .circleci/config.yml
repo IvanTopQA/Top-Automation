@@ -43,6 +43,7 @@ jobs:
       - run:
           name: generate allure
           command: docker run -v "./result:/allure-report" cashongo/allure-report-generator
+          when: always
 
       - store_artifacts:
           path: artifacts
