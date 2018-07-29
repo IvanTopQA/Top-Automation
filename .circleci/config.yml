@@ -40,7 +40,9 @@ jobs:
             . venv/bin/activate
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
 
-      - setup_remote_docker
+      - setup_remote_docker:
+          when: always
+
       - run:
           name: generate allure
           command: sudo docker pull cashongo/allure-report-generator
