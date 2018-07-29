@@ -41,8 +41,7 @@ jobs:
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
       - run:
           name: generate allure
-	  command: |
-	    . venv/bin/activate
+	        command: |
             allure generate ./result
       - store_artifacts:
           path: artifacts
