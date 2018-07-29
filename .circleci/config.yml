@@ -39,6 +39,7 @@ jobs:
           command: |
             . venv/bin/activate
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
+      - run:
 	  command: |
 	    . venv/bin/activate
             allure generate ./result
