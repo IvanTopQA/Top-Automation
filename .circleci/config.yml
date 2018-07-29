@@ -39,8 +39,10 @@ jobs:
           command: |
             . venv/bin/activate
             behave -f allure_behave.formatter:AllureFormatter -o ./result ./features
-            docker run -v "./result:/allure-report" cashongo/allure-report-generator
 
+      - run:
+          name: generate allure
+          command: docker run -v "./result:/allure-report" cashongo/allure-report-generator
 
       - store_artifacts:
           path: artifacts
